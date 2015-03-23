@@ -1,30 +1,15 @@
-var express = require('express'),
-app = express();
+var express = require('express')
+var app = express()
 
-//Configuración
-app.configure(function(){
+app.use(express.static('./public'));
 
-	//Localización de los ficheros estáticos
-	app.use(express.static(__dirname + '/public'));
-	
-	//Muestra un log de todos los request en la consola
-	app.use(express.logger('dev'));
+var puerto = process.env.PORT || 3000;
 
-	//Permite cambiar el HTML con el método POST
-	app.use(express.bodyParser());
-	
-	//Simula DELETE y PUT
-	app.use(express.methodOverride());
-});
+var server = app.listen(puerto, function () {
 
-app.get('*', function(req,res){
-	res.sendfile('./public/index.html');
-});
+  var host = server.address().address
+  var port = server.address().port
 
-//Inicializamos el puerto
-var port = process.env.PORT || 8080;
+  console.log('Example app listening at http://%s:%s', host, port)
 
-//Escucha en el puerto default de Heroku o 8080 y corre el server
-app.listen(port, function(){
-	console.log('App listening on port ' + port);
-});
+})
