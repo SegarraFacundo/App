@@ -1,0 +1,22 @@
+{
+  "name": "App-Imprenta",
+  "version": "1.0.0",
+  "description": "App subida a Heroku",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cachi87/App"
+  },
+  "author": "Facundo Segarra",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cachi87/App/issues"
+  },
+  "homepage": "https://github.com/cachi87/App",
+  "dependencies": {
+    "express": "^4.12.3"
+  }
+}
