@@ -38,10 +38,19 @@
         <div class="eight wide column">
           <div class="ui segment">
             <h1>App con Angularjs y Semantic-ui</h1>
-            <!-- anything typed in here is magically saved to Firebase! -->
-            <input type="text" ng-model="clientes.text"/>
-            <!-- all changes from Firebase magically appear here! -->
-            <h1>You said: {{ clientes.text }}</h1>
+            <div class="ui fluid form segment">
+              <div class="two fields">
+                <div class="field">
+                  <label>Nombre</label>
+                  <input placeholder="First Name" ng-model="nombre" type="text">
+                </div>
+                <div class="field">
+                  <label>Apellido</label>
+                  <input placeholder="Last Name" ng-model="apellido" type="text">
+                </div>
+              </div>
+              <div class="ui submit button" ng-click="addCliente()" >Agregar</div>
+            </div>
           </div>
         </div>
         <div class="eight wide column">

@@ -1,13 +1,13 @@
 angular.module('App')
 
-	.factory("clientsServer", ["$firebaseObject",
+	.factory("clientsServer", ["$firebaseArray",
   		
-  		function($firebaseObject) {
+  		function($firebaseArray) {
     	// create a reference to the Firebase where we will store our data
 
     var ref = new Firebase("https://pitoco.firebaseio.com/clientes");
 
-    var clientes = $firebaseObject(ref);
+    var clientes = $firebaseArray(ref);
     // this uses AngularFire to create the synchronized array
     return clientes;
   }
