@@ -1,6 +1,6 @@
 angular.module('App',['ui.router', 'firebase'])
 	.controller(	
-		'MainController','clientsServer'
+		'MainController',['clientsServer',
 	
 		function($scope, clientsServer){
 			
@@ -8,4 +8,4 @@ angular.module('App',['ui.router', 'firebase'])
 			$scope.clientes = clientsServer;
 			
 		}
-	);
+	]);
