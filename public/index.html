@@ -1,10 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-</head>
-<body>
-	App
-</body>
+<html lang="en" ng-app="App">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Imprenta App</title>
+    <link rel="stylesheet" href="libs/semantic-ui/dist/semantic.min.css">
+  </head>
+
+  <body ng-controller="MainController">
+    
+    <div class="ui secondary pointing menu">
+      <a class="active item" ui-sref="viewWork">
+        <i class="home icon"></i> Trabajos
+      </a>
+      <a class="item" ui-sref="viewClient">
+        <i class="user icon"></i> Clientes
+      </a>
+      <a class="item">
+        <i class="mail icon"></i> Mensajes
+      </a>
+      <div class="right menu">
+        <div class="item">
+          <div class="ui transparent icon input">
+            <input placeholder="Buscar..." type="text">
+            <i class="search link icon"></i>
+          </div>
+        </div>
+        <a class="ui item">
+          Cerrar Sesión
+        </a>
+      </div>
+    </div>
+
+    <div class="ui grid">
+      <div class="eight wide column">
+        <div class="ui segment">
+          <h1>App con Angularjs y Semantic-ui</h1>
+        </div>
+      </div>
+      <div class="eight wide column">
+        <div class="ui segment">
+          <div ui-view></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Vendor scripts -->
+    <script src="libs/jquery/dist/jquery.min.js"></script>
+    <script src="libs/angular/angular.js"></script>
+    <script src="libs/semantic-ui/dist/semantic.min.js"></script>
+    <script src="libs/angular-ui-router/release/angular-ui-router.js"></script>
+
+    <!-- Controllers -->  
+    <script src="scripts/controllers/MainController.js"></script>
+
+    <!-- App scripts -->
+    <script src="scripts/App.js"></script>    
+ 
+  </body>
+
 </html>
