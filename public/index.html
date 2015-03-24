@@ -38,6 +38,10 @@
         <div class="eight wide column">
           <div class="ui segment">
             <h1>App con Angularjs y Semantic-ui</h1>
+            <!-- anything typed in here is magically saved to Firebase! -->
+            <input type="text" ng-model="clientes.text"/>
+            <!-- all changes from Firebase magically appear here! -->
+            <h1>You said: {{ clientes.text }}</h1>
           </div>
         </div>
         <div class="eight wide column">
@@ -54,11 +58,20 @@
     <script src="libs/semantic-ui/dist/semantic.min.js"></script>
     <script src="libs/angular-ui-router/release/angular-ui-router.js"></script>
 
+    <!-- Firebase -->
+    <script src="libs/firebase/firebase.js"></script>
+
+    <!-- AngularFire -->
+    <script src="libs/angularfire/dist/angularfire.min.js"></script>
+
     <!-- Controllers -->  
     <script src="scripts/controllers/MainController.js"></script>
 
     <!-- App scripts -->
-    <script src="scripts/App.js"></script>    
+    <script src="scripts/App.js"></script>  
+
+    <!-- Services -->
+    <script src="scripts/services/clientsServer.js"></script>  
  
   </body>
 
