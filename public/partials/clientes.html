@@ -1,5 +1,18 @@
-	<!-- partials/clientes.html -->
-<h1>Clientes</h1>
-<hr/>
-<a ui-sref="viewClient.list">Lista de Clientes</a>
-<div ui-view></div>
+<!-- partials/clientes.html -->
+<div class="ui grid">
+	<div class="eight wide column">
+	  <div class="ui segment">
+	    <h1>Clientes</h1>
+	    <ul>
+	      <li ng-repeat="cliente in clientes">{{ cliente.nombre }} - {{ cliente.apellido }}</li>
+	    </ul>
+	  </div>
+	</div>
+	<div class="eight wide column">
+	  <div class="ui segment">
+	  	<a class="ui submit button" ui-sref="viewClient.list">Agregar cliente</a>
+	    <div ui-view></div>
+	  </div>
+	</div>
+</div>
+

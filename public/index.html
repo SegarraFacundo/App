@@ -12,7 +12,7 @@
     
     <div class="ui page grid">
       <div class="ui teal inverted menu">
-        <a class="active item" ui-sref="viewWork">
+        <a class="item" ui-sref="viewWork">
           <i class="home icon"></i> Trabajos
         </a>
         <a class="item" ui-sref="viewClient">
@@ -33,26 +33,9 @@
           </a>
         </div>
       </div>
-    
-      <div class="ui grid">
-        <div class="eight wide column">
-          <div class="ui segment">
-            <h1>Clientes</h1>
-            <ul>
-              <li ng-repeat="cliente in clientes">{{ cliente.nombre }} - {{ cliente.apellido }}</li>
-            </ul>
-            <h1>Trabajos</h1>
-            <ul>
-              <li ng-repeat="trabajo in trabajos">{{ trabajo.tipoComprobante }} - {{ trabajo.cuit }}</li>
-            </ul>
-          </div>
-        </div>
-        <div class="eight wide column">
-          <div class="ui segment">
-            <div ui-view></div>
-          </div>
-        </div>
-      </div>
+
+      <div ui-view></div>
+
     </div>
 
     <!-- Vendor scripts -->

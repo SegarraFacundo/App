@@ -1,5 +1,17 @@
 <!-- partials/trabajos.html -->
-<h1>Trabajos</h1>
-<hr/>
-<a ui-sref="viewWork.list">Lista de trabajos</a>
-<div ui-view></div>
+<div class="ui grid">
+	<div class="eight wide column">
+	  <div class="ui segment">
+	    <h1>Trabajos</h1>
+	    <ul>
+	      <li ng-repeat="trabajo in trabajos">{{ trabajo.tipoComprobante }} - {{ trabajo.cuit }}</li>
+	    </ul>
+	  </div>
+	</div>
+	<div class="eight wide column">
+	  <div class="ui segment">
+	  	<a class="ui submit button" ui-sref="viewWork.list">Agregar trabajo</a>
+	    <div ui-view></div>
+	  </div>
+	</div>
+</div>
