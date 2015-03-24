@@ -1,15 +1,103 @@
 <!-- partials/cliente-new.html -->
 <div class="ui fluid form segment">
-  <h4 class="ui dividing header">Cliente nuevo</h4>
-  <div class="two fields">
+  <form class="ui form">
+    <h4 class="ui dividing header">Nuevo cliente</h4>
+
     <div class="field">
-      <label>Nombre</label>
-      <input placeholder="Nombre" ng-model="nombre" type="text">
+      <label>Apellido y Nombre</label>
+      <div class="two fields">
+        <div class="field">
+          <input ng-model="apellido" placeholder="Apellido" type="text">
+        </div>
+        <div class="field">
+          <input ng-model="nombre" placeholder="Nombre" type="text">
+        </div>
+      </div>
     </div>
     <div class="field">
-      <label>Apellido</label>
-      <input placeholder="Apellido" ng-model="apellido" type="text">
+      <div class="two fields">
+        <div class="field">
+          <label>C.U.I.T.</label>
+          <input ng-model="cuit" placeholder="CUIT" type="text">
+        </div>
+        <div class="field">
+          <label>I.V.A.</label>
+          <select ng-model="iva" class="ui search dropdown">
+            <option value="">--Tipo de cliente--</option>
+            <option value="RI">Responsable Inscripto</option>
+            <option value="RM">Responsable Monotributo</option>
+            <option value="NR">No Responsable</option>
+          </select>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="ui submit button" ng-click="addCliente()" >Agregar</div>
+
+    <div class="field">
+      <div class="three fields">
+        <div class="field">
+          <label>Dirección</label>
+          <input ng-model="direccion" placeholder="Dirección" type="text">
+        </div>
+        <div class="field">
+          <label>Localidad</label>
+          <select ng-model="localidad" class="ui search dropdown">
+            <option value="">--Localidad--</option>
+            <option value="CAS">Casilda</option>
+            <option value="SAN">Sanford</option>
+            <option value="PUJ">Pujato</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Provincia</label>
+          <select ng-model="provincia" class="ui search dropdown">
+            <option value="">--Provincia--</option>
+            <option value="SFE">Santa Fe</option>
+            <option value="COR">Cordoba</option>
+            <option value="ERS">Entre Rios</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="two fields">
+        <div class="field">
+          <label>Teléfono</label>
+          <input ng-model="telefono" placeholder="Teléfono" type="text">
+        </div>
+        <div class="field">
+          <label>Email</label>
+          <input ng-model="email" placeholder="Email" type="text">
+        </div>
+      </div>
+    </div>
+    
+    <div class="field">
+      <div class="three fields">
+        <div class="field">
+          <label>Ingreso Brutos</label>
+          <input ng-model="ingresoBrutos" placeholder="Ingreso Brutos" type="text">
+        </div>
+        <div class="field">
+          <label>Inicio de Actividad</label>
+          <input ng-model="inicioActividad" placeholder="Ini. de actividad" type="text">
+        </div>
+        <div class="field">
+          <label>C.P.A.</label>
+          <input ng-model="cpa" placeholder="CPA" type="text">
+        </div>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Extras</label>
+      <textarea></textarea>
+    </div>
+
+    <div class="ui hidden divider"></div>
+    <div class="ui error message">
+      <div class="header">We noticed some issues</div>
+    </div>
+    <div class="ui submit button" ng-click="addCliente()">Agregar</div>
+  </form>
 </div>

@@ -11,13 +11,34 @@ angular.module('App')
       			// calling $add on a synchronized array is like Array.push(),
       			// except that it saves the changes to Firebase!
 			    $scope.clientes.$add({
-			    	nombre: $scope.nombre,
-			        apellido: $scope.apellido
+			    	apellido: $scope.apellido,
+			        nombre: $scope.nombre,
+			        cuit: $scope.cuit,
+			        iva: $scope.iva,
+			        direccion: $scope.direccion,
+			        localidad: $scope.localidad,
+			        provincia: $scope.provincia,
+			        telefono: $scope.telefono,
+			        email: $scope.email,
+			        ingresoBrutos: $scope.ingresoBrutos,
+			        inicioActividad: $scope.inicioActividad,
+			        cpa: $scope.cpa
+
 			    });
 
 			    // reset the message input
-			    $scope.nombre = "";
 			    $scope.apellido = "";
+			    $scope.nombre = "";
+			    $scope.cuit = "";
+			    $scope.iva = "";
+			    $scope.direccion = "";
+			    $scope.localidad = "";
+			    $scope.provincia = "";
+			    $scope.telefono = "";
+			    $scope.email = "";
+			    $scope.ingresoBrutos = "";
+			    $scope.inicioActividad = "";
+			    $scope.cpa = "";
     		}
 	
 		}
