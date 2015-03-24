@@ -1,4 +1,15 @@
 <!-- partials/trabajo-new.html -->
-<ul>
-  <li ng-repeat="item in items">{{ item }}</li>
-</ul>
+<h1>Agregar trabajo</h1>
+<div class="ui fluid form segment">
+  <div class="two fields">
+    <div class="field">
+      <label>Tipo de comprobante</label>
+      <input placeholder="Tipo de comprobante" ng-model="tipoComprobante" type="text">
+    </div>
+    <div class="field">
+      <label>CUIT</label>
+      <input placeholder="CUIT" ng-model="cuit" type="text">
+    </div>
+  </div>
+  <div class="ui submit button" ng-click="addTrabajo()" >Agregar</div>
+</div>

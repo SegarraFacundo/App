@@ -1,6 +1,6 @@
 angular.module('App')
 
-	.factory("clientsServer", ["$firebaseArray",
+	.factory("clientesServer", ["$firebaseArray",
   		
   		function($firebaseArray) {
     	// create a reference to the Firebase where we will store our data

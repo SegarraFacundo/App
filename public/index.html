@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="styles/style.css">
   </head>
 
-  <body ng-controller="MainController">
+  <body ng-controller="MainCtrl">
     
     <div class="ui page grid">
       <div class="ui teal inverted menu">
@@ -37,20 +37,14 @@
       <div class="ui grid">
         <div class="eight wide column">
           <div class="ui segment">
-            <h1>App con Angularjs y Semantic-ui</h1>
-            <div class="ui fluid form segment">
-              <div class="two fields">
-                <div class="field">
-                  <label>Nombre</label>
-                  <input placeholder="First Name" ng-model="nombre" type="text">
-                </div>
-                <div class="field">
-                  <label>Apellido</label>
-                  <input placeholder="Last Name" ng-model="apellido" type="text">
-                </div>
-              </div>
-              <div class="ui submit button" ng-click="addCliente()" >Agregar</div>
-            </div>
+            <h1>Clientes</h1>
+            <ul>
+              <li ng-repeat="cliente in clientes">{{ cliente.nombre }} - {{ cliente.apellido }}</li>
+            </ul>
+            <h1>Trabajos</h1>
+            <ul>
+              <li ng-repeat="trabajo in trabajos">{{ trabajo.tipoComprobante }} - {{ trabajo.cuit }}</li>
+            </ul>
           </div>
         </div>
         <div class="eight wide column">
@@ -74,15 +68,19 @@
     <script src="libs/angularfire/dist/angularfire.min.js"></script>
 
     <!-- Controllers -->  
-    <script src="scripts/controllers/MainController.js"></script>
+    <script src="scripts/controllers/MainCtrl.js"></script>
+    <script src="scripts/controllers/clientesCtrl.js"></script>
+    <script src="scripts/controllers/trabajosCtrl.js"></script>
+    <script src="scripts/controllers/usersCtrl.js"></script>
 
     <!-- App scripts -->
     <script src="scripts/App.js"></script>  
 
     <!-- Services -->
     <script src="scripts/services/usersServer.js"></script>
-    <script src="scripts/services/clientsServer.js"></script>  
- 
+    <script src="scripts/services/clientesServer.js"></script>  
+    <script src="scripts/services/trabajosServer.js"></script>  
+
   </body>
 
 </html>

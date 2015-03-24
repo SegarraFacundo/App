@@ -1,4 +1,15 @@
 <!-- partials/cliente-new.html -->
-<ul>
-  <li ng-repeat="cliente in clientes">{{ cliente.nombre }} - {{ cliente.apellido }}</li>
-</ul>
+<h1>App con Angularjs y Semantic-ui</h1>
+<div class="ui fluid form segment">
+  <div class="two fields">
+    <div class="field">
+      <label>Nombre</label>
+      <input placeholder="Nombre" ng-model="nombre" type="text">
+    </div>
+    <div class="field">
+      <label>Apellido</label>
+      <input placeholder="Apellido" ng-model="apellido" type="text">
+    </div>
+  </div>
+  <div class="ui submit button" ng-click="addCliente()" >Agregar</div>
+</div>

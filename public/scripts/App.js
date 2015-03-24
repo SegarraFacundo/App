@@ -9,18 +9,22 @@ angular.module('App')
   $stateProvider
     .state('viewWork', {
       url: "/trabajos",
-      templateUrl: "partials/trabajos.html"
+      templateUrl: "partials/trabajos.html",
+      controller:'trabajosCtrl'
     })
     .state('viewWork.list', {
       url: "/nuevo",
       templateUrl: "partials/trabajo-new.html",
+      controller:'trabajosCtrl'
     })
     .state('viewClient', {
       url: "/clientes",
-      templateUrl: "partials/clientes.html"
+      templateUrl: "partials/clientes.html",
+      controller:'clientesCtrl'
     })
     .state('viewClient.list', {
       url: "/nuevo",
       templateUrl: "partials/cliente-new.html",
+      controller:'clientesCtrl'
     });
 });
