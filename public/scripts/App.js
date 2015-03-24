@@ -14,9 +14,6 @@ angular.module('App')
     .state('viewWork.list', {
       url: "/nuevo",
       templateUrl: "partials/trabajo-new.html",
-      controller: function($scope) {
-        $scope.items = ["Factura A", "Recibo", "Factura B", "Remito"];
-      }
     })
     .state('viewClient', {
       url: "/clientes",
@@ -25,8 +22,5 @@ angular.module('App')
     .state('viewClient.list', {
       url: "/nuevo",
       templateUrl: "partials/cliente-new.html",
-      controller: function($scope) {
-        $scope.things = ["Facundo Roman", "Lisandro Duarte", "Marcos Perez", "Mariana Ruiz"];
-      }
     });
 });
