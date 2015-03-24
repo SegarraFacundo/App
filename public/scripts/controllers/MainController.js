@@ -1,8 +1,8 @@
 angular.module('App',['ui.router', 'firebase'])
 	.controller(	
-		'MainController',['clientsServer',
+		'MainController',['clientsServer',"usersServer",
 	
-		function($scope, clientsServer){
+		function($scope, clientsServer,usersServer){
 			
 			
 			$scope.clientes = clientsServer;
@@ -20,5 +20,31 @@ angular.module('App',['ui.router', 'firebase'])
 			    $scope.apellido = "";
     		}
 			
+			$scope.createUser = function() {
+				$scope.message = null;
+				$scope.error = null;
+				usersServer.$createUser({ 
+					email: $scope.email, 
+					password: $scope.password
+				}).then(function(userData) {
+					$scope.message = "User created with uid: " + userData.uid;
+				}).catch(function(error) { 
+					$scope.error = error; 
+				});
+			}; 
+			$scope.removeUser = function() {
+				$scope.message = null;
+				$scope.error = null;
+				usersServer.$removeUser({
+					email: $scope.email,
+					password: $scope.password
+				}).then(function() {
+					$scope.message = "User removed";
+				}).catch(function(error) {
+					$scope.error = error;
+				});
+			};
+	
 		}
+
 	]);
