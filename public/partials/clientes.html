@@ -4,7 +4,12 @@
 	  <div class="ui segment">
 	    <h1>Clientes</h1>
 	    <ul>
-	      <li ng-repeat="cliente in clientes">{{ cliente.nombre }} - {{ cliente.apellido }}</li>
+	      <li ng-repeat="(key,cliente) in clientes">
+	      	<a ng-click="editarCliente(cliente)">
+	      		{{ cliente.nombre }} - {{ cliente.apellido }} 
+	      	</a>
+	      	<a class="ui submit button" ng-click="deleteCliente(cliente)">Eliminar</a>
+	      </li>
 	    </ul>
 	  </div>
 	</div>

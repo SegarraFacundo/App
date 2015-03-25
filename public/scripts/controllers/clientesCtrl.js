@@ -2,45 +2,29 @@ angular.module('App')
 	.controller(	
 		'clientesCtrl',['$scope','clientesServer',
 	
-		function($scope, clientesServer){
+		function($scope, Clientes){
 			
 			
-			$scope.clientes = clientesServer;
+			$scope.clientes = Clientes.list();
 
 			$scope.addCliente = function() {
-      			// calling $add on a synchronized array is like Array.push(),
-      			// except that it saves the changes to Firebase!
-			    $scope.clientes.$add({
-			    	apellido: $scope.apellido,
-			        nombre: $scope.nombre,
-			        cuit: $scope.cuit,
-			        iva: $scope.iva,
-			        direccion: $scope.direccion,
-			        localidad: $scope.localidad,
-			        provincia: $scope.provincia,
-			        telefono: $scope.telefono,
-			        email: $scope.email,
-			        ingresoBrutos: $scope.ingresoBrutos,
-			        inicioActividad: $scope.inicioActividad,
-			        cpa: $scope.cpa
-
-			    });
-
-			    // reset the message input
-			    $scope.apellido = "";
-			    $scope.nombre = "";
-			    $scope.cuit = "";
-			    $scope.iva = "";
-			    $scope.direccion = "";
-			    $scope.localidad = "";
-			    $scope.provincia = "";
-			    $scope.telefono = "";
-			    $scope.email = "";
-			    $scope.ingresoBrutos = "";
-			    $scope.inicioActividad = "";
-			    $scope.cpa = "";
+				Clientes.saveCliente($scope.cliente);
+				$scope.cliente = {};
     		}
 	
+			$scope.deleteCliente = function(cliente){
+				Clientes.deleteCliente(cliente);
+			}
+
+			$scope.editarCliente = function(cliente){
+				$scope.cliente = cliente;
+			}
+
+			$scope.updateCliente = function(cliente){
+				Clientes.updateCliente(cliente);
+				$scope.cliente = {};
+			}			
+
 		}
 
 	]);
