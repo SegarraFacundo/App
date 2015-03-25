@@ -4,32 +4,41 @@ angular.module('App')
 	
 		function($scope, Clientes){
 			
-			
+			$scope.clearCliente = function(){
+				$scope.cliente = {};
+			}
+
 			$scope.clientes = Clientes.list();
 
 			$scope.addCliente = function() {
-				Clientes.saveCliente($scope.cliente);
-				$scope.cliente = {};
+				if($scope.nuevo){
+					$scope.cliente.fechaCreacion = Date();
+					Clientes.saveCliente($scope.cliente);
+				}else{
+					$scope.cliente.fechaUpdate = Date();
+					Clientes.updateCliente($scope.cliente)
+				}
+				$scope.clearCliente();
+    		}
+
+    		$scope.detalleCliente = function(cliente){
+    			$scope.cliente = cliente;
     		}
 	
-			$scope.deleteCliente = function(cliente){
-				Clientes.deleteCliente(cliente);
+			$scope.deleteCliente = function(){
+				Clientes.deleteCliente($scope.cliente);
+				$scope.clearCliente();
 			}
 
-			$scope.editarCliente = function(cliente){
-				$scope.cliente = cliente;
-			}
-
-			$scope.updateCliente = function(cliente){
-				Clientes.updateCliente(cliente);
-				$scope.cliente = {};
-			}
-
-			$scope.modalCliente = function(){
+			$scope.modalCliente = function(limpio){
+				if(limpio){
+					$scope.clearCliente();
+				}
+				$scope.nuevo = limpio;
 				$('.modal')
   					.modal('show')
 				;
-			}			
+			};			
 
 		}
 

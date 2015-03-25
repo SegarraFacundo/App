@@ -3,7 +3,9 @@
 	<div class="eight wide column">
 	  <div class="ui segment">
 	    <h2 class="ui header">
-  			<div class="right floated compact ui button" ng-click="modalCliente()">Agregar</div>
+	    	<div class="right floated compact ui button" data-content="Agregar nuevo cliente" ng-click="modalCliente(true)">
+  				Agregar
+  			</div>
   			<div class="content">
     			Listado de Clientes
  	 		</div>
@@ -11,7 +13,7 @@
 		<div class="ui hidden divider"></div>
 		<div class="ui animated divided list">
 		  <div class="item" ng-repeat="(key,cliente) in clientes">
-		  	<div class="right floated compact ui button" ng-click="editarCliente(cliente)">Detalles</div>
+		  	<div class="right floated compact ui button" ng-click="detalleCliente(cliente)">Detalles</div>
 		    <i class="user big icon"></i>
 		    <div class="content">
 		      <div class="header">{{ cliente.apellido }} {{cliente.nombre}}</div>
@@ -29,13 +31,42 @@
 	  			{{cliente.apellido}} {{cliente.nombre}}
 			</h4>
 		</div>
-		<div class="ui attached segment">
-  			<p>This segment is attached on both sides</p>
-		</div>
-		<div class="ui bottom attached segment">
-		  <p>This segment is on bottom</p>
-		</div>
-	  </div>
+		<div class="content">
+	      <div class="description">
+	        <div class="ui divider"></div>
+	        	<h4 class="ui  header">CUIT</h4>
+	        	{{cliente.cuit}}
+	        
+	        <div class="ui divider"></div>
+	        	<h4 class="ui header">Teléfono</h4>
+	        	{{cliente.telefono}}
+	        
+	        <div class="ui divider"></div>
+	        	<h4 class="ui header">Email</h4>
+	        	{{cliente.email}}
+	        
+	        <div class="ui divider"></div>
+	        	<h4 class="ui  header">Dirección</h4>	
+	        	{{cliente.direccion}}
+	        
+	        <div class="ui divider"></div>
+	        	<h4 class="ui  header">Localidad</h4>
+	        	{{cliente.localidad}}
+	       
+	        <div class="ui divider"></div>
+	      </div>
+	    </div>
+	    <div class="ui two bottom attached buttons">
+	      <div class="ui button" ng-click="modalCliente(false)">
+	        <i class="add icon"></i>
+	        Actualizar
+	      </div>
+	      <div class="ui primary button" ng-click="deleteCliente()">
+	        <i class="play icon"></i>
+	        Eliminar
+	      </div>
+	    </div>
+  	  </div>
 	</div>
 </div>
 
@@ -139,12 +170,12 @@
 		    </div>
 
 			<div class="actions">
-			    <div class="ui black button">
-			      Cancelar
-			    </div>
 			    <div class="ui positive right labeled icon button" ng-click="addCliente()">
 			      Aceptar
 			      <i class="checkmark icon"></i>
+			    </div>
+			    <div class="ui black button">
+			      Cancelar
 			    </div>
 			</div>
 		</form>

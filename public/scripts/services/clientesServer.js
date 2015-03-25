@@ -33,8 +33,8 @@ angular.module('App')
 
 		    		Clientes.$save(cliente).then(function(ref) {
 					  ref.key() === cliente.$id; // true
-					  console.log("Update cliente, id: " + cliente.$id); 
-					});
+					  console.log("Update cliente, id: " + cliente.$id);
+					})
 		    	}, 
 
 		    	deleteCliente: function(cliente){
