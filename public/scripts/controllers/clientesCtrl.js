@@ -35,9 +35,8 @@ angular.module('App')
 					$scope.clearCliente();
 				}
 				$scope.nuevo = limpio;
-				$('.modal')
-  					.modal('show')
-				;
+				
+				$('.modal').modal('show');
 			};			
 
 		}
