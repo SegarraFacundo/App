@@ -23,6 +23,12 @@ angular.module('App')
 			$scope.updateCliente = function(cliente){
 				Clientes.updateCliente(cliente);
 				$scope.cliente = {};
+			}
+
+			$scope.modalCliente = function(){
+				$('.modal')
+  					.modal('show')
+				;
 			}			
 
 		}

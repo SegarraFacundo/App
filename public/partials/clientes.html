@@ -2,22 +2,151 @@
 <div class="ui grid">
 	<div class="eight wide column">
 	  <div class="ui segment">
-	    <h1>Clientes</h1>
-	    <ul>
-	      <li ng-repeat="(key,cliente) in clientes">
-	      	<a ng-click="editarCliente(cliente)">
-	      		{{ cliente.nombre }} - {{ cliente.apellido }} 
-	      	</a>
-	      	<a class="ui submit button" ng-click="deleteCliente(cliente)">Eliminar</a>
-	      </li>
-	    </ul>
+	    <h2 class="ui header">
+  			<div class="right floated compact ui button" ng-click="modalCliente()">Agregar</div>
+  			<div class="content">
+    			Listado de Clientes
+ 	 		</div>
+		</h2>
+		<div class="ui hidden divider"></div>
+		<div class="ui animated divided list">
+		  <div class="item" ng-repeat="(key,cliente) in clientes">
+		  	<div class="right floated compact ui button" ng-click="editarCliente(cliente)">Detalles</div>
+		    <i class="user big icon"></i>
+		    <div class="content">
+		      <div class="header">{{ cliente.apellido }} {{cliente.nombre}}</div>
+		      {{cliente.cuit}}
+		    </div>
+		  </div>
+  		</div>
 	  </div>
 	</div>
 	<div class="eight wide column">
-	  <div class="ui segment">
-	  	<a class="ui submit button" ui-sref="viewClient.list">Agregar cliente</a>
-	    <div ui-view></div>
+	  <div class="ui blue segment">
+		<div class="ui top attached segment"> 
+		    <h4 class="ui center aligned icon header">
+	  			<i class="circular user icon"></i>
+	  			{{cliente.apellido}} {{cliente.nombre}}
+			</h4>
+		</div>
+		<div class="ui attached segment">
+  			<p>This segment is attached on both sides</p>
+		</div>
+		<div class="ui bottom attached segment">
+		  <p>This segment is on bottom</p>
+		</div>
 	  </div>
 	</div>
 </div>
 
+
+
+<div class="ui modal">
+	<i class="close icon"></i>
+	<div class="ui fluid form segment">  	
+		<form class="ui form">
+		    <h4 class="ui dividing header">Nuevo cliente</h4>
+
+		    <div class="field">
+		      <label>Apellido y Nombre</label>
+		      <div class="two fields">
+		        <div class="field">
+		          <input ng-model="cliente.apellido" placeholder="Apellido" type="text">
+		        </div>
+		        <div class="field">
+		          <input ng-model="cliente.nombre" placeholder="Nombre" type="text">
+		        </div>
+		      </div>
+		    </div>
+		    <div class="field">
+		      <div class="two fields">
+		        <div class="field">
+		          <label>C.U.I.T.</label>
+		          <input ng-model="cliente.cuit" placeholder="CUIT" type="text">
+		        </div>
+		        <div class="field">
+		          <label>I.V.A.</label>
+		          <select ng-model="cliente.iva" class="ui search dropdown">
+		            <option value="">--Tipo de cliente--</option>
+		            <option value="RI">Responsable Inscripto</option>
+		            <option value="RM">Responsable Monotributo</option>
+		            <option value="NR">No Responsable</option>
+		          </select>
+		        </div>
+		      </div>
+		    </div>
+
+		    <div class="field">
+		      <div class="three fields">
+		        <div class="field">
+		          <label>Dirección</label>
+		          <input ng-model="cliente.direccion" placeholder="Dirección" type="text">
+		        </div>
+		        <div class="field">
+		          <label>Localidad</label>
+		          <select ng-model="cliente.localidad" class="ui search dropdown">
+		            <option value="">--Localidad--</option>
+		            <option value="CAS">Casilda</option>
+		            <option value="SAN">Sanford</option>
+		            <option value="PUJ">Pujato</option>
+		          </select>
+		        </div>
+		        <div class="field">
+		          <label>Provincia</label>
+		          <select ng-model="cliente.provincia" class="ui search dropdown">
+		            <option value="">--Provincia--</option>
+		            <option value="SFE">Santa Fe</option>
+		            <option value="COR">Cordoba</option>
+		            <option value="ERS">Entre Rios</option>
+		          </select>
+		        </div>
+		      </div>
+		    </div>
+
+		    <div class="field">
+		      <div class="two fields">
+		        <div class="field">
+		          <label>Teléfono</label>
+		          <input ng-model="cliente.telefono" placeholder="Teléfono" type="text">
+		        </div>
+		        <div class="field">
+		          <label>Email</label>
+		          <input ng-model="cliente.email" placeholder="Email" type="text">
+		        </div>
+		      </div>
+		    </div>
+		    
+		    <div class="field">
+		      <div class="three fields">
+		        <div class="field">
+		          <label>Ingreso Brutos</label>
+		          <input ng-model="cliente.ingresoBrutos" placeholder="Ingreso Brutos" type="text">
+		        </div>
+		        <div class="field">
+		          <label>Inicio de Actividad</label>
+		          <input ng-model="cliente.inicioActividad" placeholder="Ini. de actividad" type="text">
+		        </div>
+		        <div class="field">
+		          <label>C.P.A.</label>
+		          <input ng-model="cliente.cpa" placeholder="CPA" type="text">
+		        </div>
+		      </div>
+		    </div>
+
+		    <div class="field">
+		      <label>Extras</label>
+		      <textarea></textarea>
+		    </div>
+
+			<div class="actions">
+			    <div class="ui black button">
+			      Cancelar
+			    </div>
+			    <div class="ui positive right labeled icon button" ng-click="addCliente()">
+			      Aceptar
+			      <i class="checkmark icon"></i>
+			    </div>
+			</div>
+		</form>
+	</div>
+</div>
