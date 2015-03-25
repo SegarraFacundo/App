@@ -2,39 +2,43 @@ angular.module('App')
 	.controller(	
 		'trabajosCtrl',['$scope','trabajosServer',
 	
-		function($scope, trabajosServer){
+		function($scope, Trabajos){
 			
-			
-			$scope.trabajos = trabajosServer;
+			$scope.clearTrabajo = function(){
+				$scope.trabajo = {};
+			}
+
+			$scope.trabajos = Trabajos.list();
 
 			$scope.addTrabajo = function() {
-      			// calling $add on a synchronized array is like Array.push(),
-      			// except that it saves the changes to Firebase!
-			    $scope.trabajos.$add({
-			    	tipoComprobante: $scope.tipoComprobante,
-			        cuit: $scope.cuit
-			    });
-
-			    // reset the message input
-			    $scope.tipoComprobante = "";
-			    $scope.cuit = "";
+				if($scope.nuevo){
+					$scope.trabajo.fechaCreacion = Date();
+					Trabajos.saveTrabajo($scope.trabajo);
+				}else{
+					$scope.trabajos.fechaUpdate = Date();
+					Trabajos.updateCliente($scope.cliente)
+				}
+				$scope.clearTrabajo();
     		}
 
-    		//Da de baja un trabajo
-    		$scope.deleteTrabajo = function(id){
-    			
-			}
-
-			//Actualiza los datos de un trabajo identificado por la id
-			$scope.updateTrabajo = function(id){
-				
-			}
-
-			//Da la info de un trabajo por la id
-			$scope.infoTrabajo = function(id){
-				return cliente
-			}
+    		$scope.detalleTrabajo = function(trabajo){
+    			$scope.trabajo = trabajo;
+    		}
 	
+			$scope.deleteTrabajo = function(){
+				Trabajos.deleteTrabajo($scope.trabajo);
+				$scope.clearTrabajo();
+			}
+
+			$scope.modalTrabajo = function(limpio){
+				if(limpio){
+					$scope.clearTrabajo();
+				}
+				$scope.nuevo = limpio;
+				
+				$('.modal').modal('show');
+			};			
+
 		}
 
 	]);
