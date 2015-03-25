@@ -3,7 +3,7 @@ angular.module('App')
 .config(function($stateProvider, $urlRouterProvider) {
   //
   // For any unmatched url, redirect to /state1
-  $urlRouterProvider.otherwise("/trabajos/nuevo");
+  $urlRouterProvider.otherwise("/clientes");
   //
   // Now set up the states
   $stateProvider
