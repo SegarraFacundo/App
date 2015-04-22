@@ -1,12 +1,31 @@
 var app = angular.module("App"); 
 // let's create a re-usable factory that generates the $firebaseAuth instance 
 
-app.factory('usersServer', ["$firebaseAuth",
+app.factory('usersServer', ['$state',
 
-	function($firebaseAuth) {
+	function($state) {
 		
-		var ref = new Firebase("https://pitoco.firebaseio.com");
-		return $firebaseAuth(ref);
+		var users = new Firebase("https://pitoco.firebaseio.com");
+		
+		return {
+		    	
+		    	autentificar: function(email,password,redirect){
+
+					users.authWithPassword({
+								email    : email,
+								password : password
+						}, valor = function(error, authData) {
+							if (error) {
+								console.log("Login Failed!", error);
+							} else {
+								console.log("Authenticated successfully with payload:", authData);
+								$state.go(redirect);
+							}
+
+						}
+					);			
+		    	}
+  			};
 	} 
 ]);
  

@@ -1,0 +1,23 @@
+<div class="eight wide column">
+	<div class="ui segment">
+		<h2 class="ui header">
+			<div class="right floated compact ui button" data-content="Agregar nuevo cliente" ui-sref="newClient">
+				Agregar
+			</div>
+			<div class="content">
+				Listado de Clientes
+			</div>
+		</h2>
+		<div class="ui hidden divider"></div>
+		<div class="ui animated divided list">
+			<div class="item" ng-repeat="(key,cliente) in clientes">
+				<div class="right floated compact ui button" ng-click="detalleCliente(cliente)">Detalles</div>
+				<i class="user big icon"></i>
+				<div class="content">
+					<div class="header">{{ cliente.apellido }} {{cliente.nombre}}</div>
+					{{cliente.cuit}}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

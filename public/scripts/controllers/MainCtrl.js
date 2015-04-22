@@ -1,11 +1,15 @@
 angular.module('App',['ui.router', 'firebase'])
 	.controller(	
-		'MainCtrl',['$scope','clientesServer','trabajosServer',
+		'MainCtrl',['$scope','clientesServer',
 	
-		function($scope, clientesServer, trabajosServer){			
+		function($scope, clientesServer){			
 			
 			$scope.clientes = clientesServer;
-			$scope.trabajos = trabajosServer;
+			
+			$scope.closeSesion = function(){
+				$state.go('login');
+			}
+
 	
 		}
 

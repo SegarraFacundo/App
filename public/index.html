@@ -10,59 +10,29 @@
 
   <body ng-controller="MainCtrl">
     
-    <div class="ui page grid">
-      <div class="ui inverted menu">
-        <a class="item" ui-sref="viewWork">
-          <i class="home icon"></i> Trabajos
-        </a>
-        <a class="item" ui-sref="viewClient">
-          <i class="user icon"></i> Clientes
-        </a>
-        <a class="item">
-          <i class="mail icon"></i> Mensajes
-        </a>
-        <div class="right menu">
-          <div class="item">
-            <div class="ui transparent icon input">
-              <input placeholder="Buscar..." type="text">
-              <i class="search link icon"></i>
-            </div>
-          </div>
-          <a class="ui item">
-            Cerrar Sesión
-          </a>
-        </div>
-      </div>
+ 
+    <div ui-view></div>
 
-      <div ui-view></div>
-
-    </div>
 
     <!-- Vendor scripts -->
     <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
     <script src="libs/semantic-ui/dist/semantic.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.13/angular-ui-router.js"></script>
-
-    <!-- Firebase -->
     <script src="https://cdn.firebase.com/js/client/2.2.3/firebase.js"></script>
-
-    <!-- AngularFire -->
     <script src="https://cdn.firebase.com/libs/angularfire/1.0.0/angularfire.min.js"></script>
+    <script src="https://cdn.firebase.com/js/simple-login/1.6.2/firebase-simple-login.js"></script>
 
     <!-- Controllers -->  
     <script src="scripts/controllers/MainCtrl.js"></script>
     <script src="scripts/controllers/clientesCtrl.js"></script>
-    <script src="scripts/controllers/trabajosCtrl.js"></script>
-    <script src="scripts/controllers/usersCtrl.js"></script>
-
+    <script src="scripts/controllers/loginUserCtrl.js"></script>
     <!-- App scripts -->
     <script src="scripts/App.js"></script>  
 
     <!-- Services -->
-    <script src="scripts/services/usersServer.js"></script>
-    <script src="scripts/services/clientesServer.js"></script>  
-    <script src="scripts/services/trabajosServer.js"></script>  
+    <script src="scripts/services/clientesServer.js"></script>   
+    <script src="scripts/services/usersServer.js"></script> 
 
   </body>
 

@@ -30,14 +30,6 @@ angular.module('App')
 				$scope.clearCliente();
 			}
 
-			$scope.modalCliente = function(limpio){
-				if(limpio){
-					$scope.clearCliente();
-				}
-				$scope.nuevo = limpio;
-				
-				$('.modal').modal('show');
-			};			
 
 		}
 

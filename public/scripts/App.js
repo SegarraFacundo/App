@@ -3,19 +3,28 @@ angular.module('App')
 .config(function($stateProvider, $urlRouterProvider) {
   //
   // For any unmatched url, redirect to /state1
-  $urlRouterProvider.otherwise("/clientes");
+  $urlRouterProvider.otherwise("/");
   //
   // Now set up the states
   $stateProvider
-    .state('viewWork', {
-      url: "/trabajos",
-      templateUrl: "partials/trabajos.html",
-      controller:'trabajosCtrl'
+    .state('login', {
+      url: "/",
+      templateUrl: "partials/loginUser.html",
+      controller:'loginUserCtrl',
+      authenticate: false
     })
     .state('viewClient', {
       url: "/clientes",
       templateUrl: "partials/clientes.html",
-      controller:'clientesCtrl'
+      controller:'clientesCtrl',
+      authenticate: true
     })
+    .state('viewClient.new', {
+      url: "/clientes.new",
+      templateUrl: "partials/cliente-new.html",
+      controller:'newClienteCtrl',
+      authenticate: true
+    })
+
     
 });

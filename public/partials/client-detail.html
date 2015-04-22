@@ -1,0 +1,45 @@
+<div class="eight wide column">
+	<div class="ui blue segment">
+		<div class="ui top attached segment"> 
+			<h4 class="ui center aligned icon header">
+				<i class="circular user icon"></i>
+				{{cliente.apellido}} {{cliente.nombre}}
+			</h4>
+		</div>
+		<div class="content">
+			<div class="description">
+				<div class="ui divider"></div>
+				<h4 class="ui  header">CUIT</h4>
+				{{cliente.cuit}}
+				
+				<div class="ui divider"></div>
+				<h4 class="ui header">Teléfono</h4>
+				{{cliente.telefono}}
+				
+				<div class="ui divider"></div>
+				<h4 class="ui header">Email</h4>
+				{{cliente.email}}
+				
+				<div class="ui divider"></div>
+				<h4 class="ui  header">Dirección</h4>	
+				{{cliente.direccion}}
+				
+				<div class="ui divider"></div>
+				<h4 class="ui  header">Localidad</h4>
+				{{cliente.localidad}}
+				
+				<div class="ui divider"></div>
+			</div>
+		</div>
+		<div class="ui two bottom attached buttons">
+			<div class="ui button" ng-click="modalCliente(false)">
+				<i class="add icon"></i>
+				Actualizar
+			</div>
+			<div class="ui primary button" ng-click="deleteCliente()">
+				<i class="play icon"></i>
+				Eliminar
+			</div>
+		</div>
+	</div>
+</div>
