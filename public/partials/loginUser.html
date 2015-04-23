@@ -1,22 +1,39 @@
 
 <div class="ui two column centered grid">
+  <h1 class="ui blue header">Bienvenido</h1>
   <div class="column">
-    <div class="ui form segment">
+    <form role="form" name="forma" class="ui form segment">
       <div class="field">
         <label>Usuario</label>
         <div class="ui left icon input">
-          <input placeholder="E-mail" type="email" ng-model="user.email">
+          <input placeholder="Email" id="userEmail" name="userEmail" type="email" ng-model="user.email" required>
+          <div ng-show="forma.userEmail.$dirty && forma.userEmail.$invalid">
+          </div>
           <i class="user icon"></i>
+        </div>
+        <div ng-show="forma.userEmail.$dirty && forma.userEmail.$invalid">
+          <div ng-show="forma.userEmail.$error.required" class="ui pointing red label">
+            Campo Obligatorio
+          </div>
+          <div ng-show="forma.userEmail.$error.email" class="ui pointing red label">
+            Email invalido
+          </div>
         </div>
       </div>
       <div class="field">
         <label>Contraseña</label>
         <div class="ui left icon input">
-          <input placeholder="Contraseña" type="password" ng-model="user.password">
+          <input placeholder="Contraseña" id="userContrasenia" name="userContrasenia" type="password" ng-model="user.password" required>
           <i class="lock icon"></i>
         </div>
+        <div ng-show="forma.userContrasenia.$dirty">
+          <div ng-show="forma.userContrasenia.$error.required" class="ui pointing red label">
+            Campo Obligatorio
+          </div>
+        </div>
       </div>
-      <div class="ui blue submit button" ng-click="SignIn()">Iniciar Sesión</div>
-    </div>
+      <div class="ui right floated blue submit button" ng-click="SignIn();validFor()">Iniciar Sesión</div>
+      <div class="ui error message"></div>
+    </form>
   </div>
 </div>

@@ -8,8 +8,12 @@ angular.module('App')
 
 				usersServer.autentificar($scope.user.email,$scope.user.password,'viewClient');
 
-			}	
-		
+			}
+
+			$scope.chance = function(){
+				$scope.valor = true;
+			}
+
 		}
 
 	]);
