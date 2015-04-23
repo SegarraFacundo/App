@@ -1,18 +1,14 @@
 angular.module('App')
 	.controller(	
-		'loginUserCtrl',['$scope', '$state','usersServer',
+		'loginUserCtrl',['$scope','usersServer',
 	
-		function($scope, $state, usersServer){
-			
-			$scope.SignIn = function() {
+		function($scope, usersServer){
 
-				usersServer.autentificar($scope.user.email,$scope.user.password,'viewClient');
+			$scope.register = function () {
 
-			}
+			  	usersServer.autentificar($scope.user.email,$scope.user.password,'viewClient');
 
-			$scope.chance = function(){
-				$scope.valor = true;
-			}
+			};
 
 		}
 

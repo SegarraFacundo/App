@@ -14,7 +14,7 @@ app.factory('usersServer', ['$state',
 					users.authWithPassword({
 								email    : email,
 								password : password
-						}, valor = function(error, authData) {
+						}, function(error, authData) {
 							if (error) {
 								console.log("Login Failed!", error);
 							} else {
